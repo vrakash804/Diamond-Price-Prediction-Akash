@@ -81,7 +81,7 @@ R² Score:
 ```text
 0.9364
 
-🛠️ Technology Stack
+##🛠️ Technology Stack
 Python
 Pandas
 NumPy
@@ -96,7 +96,7 @@ HTML
 CSS
 Git & GitHub
 
-🌐 Web Application
+##🌐 Web Application
 
 The Flask web application allows users to enter:
 
@@ -115,7 +115,7 @@ The entered values are processed using the saved preprocessing pipeline and pass
 
 The predicted diamond price is then displayed to the user.
 
-📊 Dataset
+##📊 Dataset
 
 The project uses the Diamond Price Prediction dataset from Kaggle.
 
@@ -136,7 +136,7 @@ Dataset:
 
 https://www.kaggle.com/competitions/playground-series-s3e8/data
 
-⚙️ Installation
+##⚙️ Installation
 
 Clone the repository:
 
@@ -157,7 +157,8 @@ Activate it on Windows:
 Install dependencies:
 
 pip install -r requirements.txt
-▶️ Run the Application
+
+##▶️ Run the Application
 
 Start the Flask application:
 
@@ -197,7 +198,7 @@ Diamond-Price-Prediction-Akash/
 ├── .gitignore
 └── README.md
 
-👨‍💻 Author
+##👨‍💻 Author
 Akash V R
 
 AI/ML Student
