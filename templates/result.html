@@ -1,31 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diamond Price Prediction Result</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            margin: 0;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background: #f4f7fb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            background: #0b1424;
+            padding: 35px 20px;
             text-align: center;
         }
 
-        .container {
-            margin: 100px auto;
-            max-width: 600px;
-            background-color: rgb(21, 197, 147);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        .diamond {
+            color: #e7b95e;
+            font-size: 26px;
+            margin-bottom: 8px;
         }
 
-        h1 {
-            font-size: 24px;
-            color: #333;
+        .header h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 42px;
+            font-family: Georgia, serif;
+        }
+
+        .result-card {
+            width: min(650px, 90%);
+            margin-top: 80px;
+            padding: 50px 40px;
+            background: #ffffff;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(11, 20, 36, 0.10);
+            border: 1px solid #e3e9f2;
+        }
+
+        .result-label {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .result-card h2 {
+            margin: 0 0 15px;
+            color: #0b1424;
+            font-size: 28px;
+        }
+
+        .price {
+            color: #2563eb;
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0 35px;
+        }
+
+        .description {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .back-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 25px;
+            color: #94a3b8;
+            font-size: 13px;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>The Diamond price will be <span id="finalResult">{{final_result}}</span></h1>
-    </div>
+
+    <header class="header">
+        <div class="diamond">◆</div>
+        <h1>Diamond Price Prediction</h1>
+    </header>
+
+    <main class="result-card">
+
+        <div class="result-label">
+            Prediction Complete
+        </div>
+
+        <h2>Estimated Diamond Price</h2>
+
+        <div class="price">
+    ₹ {{ final_result }}
+</div>
+
+        <p class="description">
+            Based on the diamond characteristics provided,
+            our machine learning model estimated the above price.
+        </p>
+
+        <a href="/" class="back-button">
+            Predict Another Diamond
+        </a>
+
+    </main>
+
+    <footer class="footer">
+        AI-Powered Diamond Price Prediction
+    </footer>
+
 </body>
 </html>

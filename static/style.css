@@ -1,70 +1,345 @@
-/* Reset some default styles */
-body, h1, form {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --navy: #0B1220;
+    --sapphire: #2563EB;
+    --sapphire-dark: #1D4ED8;
+    --diamond-blue: #60A5FA;
+    --champagne: #D4AF6A;
+    --pearl: #F8FAFC;
+    --white: #FFFFFF;
+    --slate: #64748B;
+    --border: #E2E8F0;
+    --input-bg: #FCFDFE;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(96, 165, 250, 0.08),
+            transparent 30%
+        ),
+        var(--pearl);
+    color: var(--navy);
+    min-height: 100vh;
 }
 
-/* Center the form and result */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+/* ================= HEADER ================= */
+
+h1 {
+    margin: 0 !important;
+    padding: 35px 20px 30px !important;
+
+    background: var(--navy);
+    color: var(--white) !important;
+
+    font-family: "Playfair Display", serif;
+    font-size: 42px !important;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+    text-align: center;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Style the form */
+h1::before {
+    content: "◆";
+    display: block;
+
+    color: var(--champagne);
+
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+/* ================= FORM CONTAINER ================= */
+
 form {
-    width: 50%;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 850px;
+
+    margin: 45px auto 70px;
+    padding: 35px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px rgba(11, 18, 32, 0.08);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 22px;
+    row-gap: 2px;
 }
+
+/* ================= SECTION TITLE ================= */
+
+form::before {
+    content: "PHYSICAL CHARACTERISTICS";
+
+    grid-column: 1 / -1;
+
+    color: var(--sapphire);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 2px;
+}
+
+/* ================= FORM GROUP ================= */
 
 .form-group {
-    margin: 10px 0;
+    margin-bottom: 18px;
 }
 
-label {
+/* ================= LABEL ================= */
+
+.form-group label {
     display: block;
-    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 600;
 }
 
-input[type="text"], select {
+/* ================= TEXT + NUMBER INPUTS ================= */
+
+/* IMPORTANT:
+   HTML uses type="number", not type="text"
+*/
+
+.form-group input[type="number"],
+.form-group input[type="text"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: var(--input-bg);
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--navy);
+
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
-/* Style the submit button */
-input[type="submit"] {
+/* Placeholder */
+
+.form-group input[type="number"]::placeholder,
+.form-group input[type="text"]::placeholder {
+    color: #94A3B8;
+}
+
+/* Hover */
+
+.form-group input[type="number"]:hover,
+.form-group input[type="text"]:hover {
+    border-color: #CBD5E1;
+}
+
+/* Focus */
+
+.form-group input[type="number"]:focus,
+.form-group input[type="text"]:focus {
+    border-color: var(--sapphire);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+/* ================= REMOVE NUMBER SPINNER ================= */
+
+/* Chrome / Edge / Brave */
+
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* ================= SELECT ================= */
+
+.form-group select {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    height: 48px;
+
+    padding: 0 14px;
+
+    background: var(--input-bg);
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--navy);
+
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+
+    outline: none;
+
     cursor: pointer;
-    transition: background-color 0.3s;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-group select:hover {
+    border-color: #CBD5E1;
+}
+
+.form-group select:focus {
+    border-color: var(--sapphire);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+/* ================= CATEGORICAL FIELDS ================= */
+
+/* Clarity spans the full width */
+
+.form-group:nth-child(9) {
+    grid-column: 1 / -1;
+}
+
+.form-group:nth-child(9) select {
+    width: 100%;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+
+input[type="submit"] {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    height: 52px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--sapphire);
+
+    color: var(--white);
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background: var(--sapphire-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(29, 78, 216, 0.25);
 }
 
-/* Style the result header */
-h1 {
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ================= ERROR MESSAGE ================= */
+
+.error-message {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 20px auto;
+
+    padding: 14px 18px;
+
+    background: #FFF1F2;
+
+    border: 1px solid #FECDD3;
+
+    color: #BE123C;
+
+    border-radius: 10px;
+
     text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-top: 20px;
+
+    font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 650px) {
+
+    h1 {
+        font-size: 32px !important;
+        padding: 28px 15px !important;
+    }
+
+    form {
+        width: 92%;
+
+        padding: 22px;
+
+        margin-top: 30px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group:nth-child(9) {
+        grid-column: 1;
+    }
+
+    input[type="submit"] {
+        grid-column: 1;
+    }
 }
