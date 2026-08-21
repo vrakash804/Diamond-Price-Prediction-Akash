@@ -18,12 +18,12 @@ class PredictPipeline:
 
             # Paths to saved preprocessing object and model
             preprocessor_path = os.path.join(
-                "artifacts",
+                "Artifacts",
                 "preprocessor.pkl"
             )
 
             model_path = os.path.join(
-                "artifacts",
+                "Artifacts",
                 "model.pkl"
             )
 
