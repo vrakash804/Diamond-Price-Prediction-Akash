@@ -1,14 +1,14 @@
-# FROM  - the base image to use to start the build process.
-FROM python:3.8-slim-buster
+# Use Python 3.11 because the project dependencies require Python 3.9+
+FROM python:3.11-slim
 
-# WORKDIR - sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile.
+# Set the working directory
 WORKDIR /service
 
-#COPY - copies files or directories and adds them to the filesystem of the container.
+# Copy the project files
 COPY . ./
 
-# RUN - executes any commands in a new layer on top of the current image and commits the results.
+# Install Python dependencies
 RUN pip install -r requirements.txt
 
-# CMD - provides defaults for an executing container.
+# Start the Flask application
 CMD python app.py
